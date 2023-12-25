@@ -13,3 +13,6 @@ jobs:
         run: |
           RUST_VERSION="$(cat rust-toolchain.toml | grep '^channel\s*=' | cut -d '=' -f2 | sed 's/"//g' | sed 's/^[ \t]*//')"
           echo "rust-version=${RUST_VERSION}" >> "$GITHUB_OUTPUT"
+
+          curl --fail --silent --show-error --location https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86_64.gz | \
+          gzip --decompress - | install --mode=755 /dev/stdin /usr/local/bin/taplo
