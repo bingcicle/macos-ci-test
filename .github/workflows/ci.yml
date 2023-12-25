@@ -11,5 +11,5 @@ jobs:
 
       - name: Blah
         run: |
-          RUST_VERSION="$(cat rust-toolchain.toml | grep '^channel\s*=' | cut --delimiter '=' --fields=2 | sed 's/"//g' | sed 's/^[ \t]*//')"
+          RUST_VERSION="$(cat rust-toolchain.toml | grep '^channel\s*=' | cut --delimiter='=' --fields=2 | sed 's/"//g' | sed 's/^[ \t]*//')"
           echo "rust-version=${RUST_VERSION}" >> "$GITHUB_OUTPUT"
